@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @livro.nome %>
+</p>
+
+<p>
+  <%= image_tag @livro.foto.url(:medium) %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @livro.descricao %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @livro.valor %>
+</p>
+
+<%= link_to 'Edit', edit_livro_path(@livro) %> |
+<%= link_to 'Back', livros_path %>
