@@ -1,23 +1,34 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { fetchLivros } from "../actions/livros_action";
 
-const ROOT_WS_URL = 'http://localhost:3000';
-
-export default class LivrosList extends Component{
-  constructor(props){
-    super(props);
-  }
+class LivrosList extends Component{
   componentDidMount() {
-    axios.get(`${ROOT_WS_URL}/livros.json`).then(response => {
-      console.log(response);
-    });
-
+    this.props.fetchLivros();
+  }
+  renderLivros(livro){
+    return (
+            <div>
+              <img src={livro.foto_url}/>
+            </div>
+    );
   }
   render(){
     return(
            <div>
-
+            {this.props.livros.map(this.renderLivros)}
            </div>
     );
   }
 }
+
+function mapStateToProps({ livros }) {
+  return { livros };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchLivros }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LivrosList);

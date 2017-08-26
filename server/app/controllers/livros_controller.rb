@@ -5,6 +5,11 @@ class LivrosController < ApplicationController
   # GET /livros.json
   def index
     @livros = Livro.all
+
+    respond_to do |format|
+      format.html { @livros }
+      format.json { render json: @livros.as_json(methods: :foto_url) }
+    end
   end
 
   # GET /livros/1
@@ -71,4 +76,4 @@ class LivrosController < ApplicationController
     def livro_params
       params.require(:livro).permit(:nome, :descricao, :valor, :foto)
     end
-end
+  end
