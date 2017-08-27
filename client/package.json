@@ -26,12 +26,16 @@
   "dependencies": {
     "axios": "^0.16.2",
     "babel-preset-stage-1": "^6.1.18",
-    "lodash": "^3.10.1",
+    "css-loader": "^0.28.5",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "lodash": "^4.17.4",
+    "node-sass": "^4.5.3",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "react-redux": "4.3.0",
     "react-router": "^2.0.1",
     "redux": "^3.0.4",
-    "redux-promise": "^0.5.3"
+    "redux-promise": "^0.5.3",
+    "sass-loader": "^6.0.6"
   }
 }

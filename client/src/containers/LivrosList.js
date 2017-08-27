@@ -1,22 +1,25 @@
 import React, {Component} from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+
 import { fetchLivros } from "../actions/livros_action";
+
+import LivroItem from "../containers/LivroItem"
 
 class LivrosList extends Component{
   componentDidMount() {
     this.props.fetchLivros();
   }
+  
   renderLivros(livro){
     return (
-            <div>
-              <img src={livro.foto_url}/>
-            </div>
+           <LivroItem key={livro.id} livro={livro}/>
     );
   }
   render(){
+
     return(
-           <div>
+           <div className='row'>
             {this.props.livros.map(this.renderLivros)}
            </div>
     );
