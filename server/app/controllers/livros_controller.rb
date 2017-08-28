@@ -8,7 +8,7 @@ class LivrosController < ApplicationController
 
     respond_to do |format|
       format.html { @livros }
-      format.json { render json: @livros.as_json(methods: :foto_url) }
+      format.json { render json: @livros.as_json(methods: [:foto_url, :foto_url_original]) }
     end
   end
 
