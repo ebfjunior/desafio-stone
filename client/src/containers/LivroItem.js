@@ -1,27 +1,20 @@
 import React, {Component} from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import classNames from 'classnames';
 
 import { addCartItem } from "../actions/cart_action";
 
 class LivroItem extends Component{
   constructor(props){
     super(props);
-    
     this.livro = this.props.livro;  
-    this.state = {inCart: false};
-  }
-  componentDidMount() {
-    this.setState({inCart: this.checkStatus()});
-  }
-  checkStatus(){
-    const {cart} = this.props;
-    return cart[this.livro.id] != undefined;
   }
   addCartItem(e){
-    addCartItem(this.livro, () => {this.checkStatus})
+    this.props.addCartItem(this.livro);
   }
   render(){
+    const classes = classNames('waves-effect', 'btn', 'waves-light', 'cyan');
 
     return (
             <div className="col s12 m4 l2 center-align livro-item">
@@ -32,8 +25,8 @@ class LivroItem extends Component{
                   <div className="amber-text bold livro-preco">{this.livro.valor.toLocaleString( 'pt-BR',{ minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' , currencyDisplay: 'symbol'})}</div>
                 </div>
                 <div className="cart-add">
-                  <button className="waves-effect waves-light btn {}" onClick={this.addCartItem}>
-                    <span className="label">Adicionar</span>
+                  <button className={classes} onClick={this.addCartItem.bind(this)}>
+                    <span className="label">ADICIONAR</span>
                   </button>
                 </div>
               </div>
@@ -42,12 +35,8 @@ class LivroItem extends Component{
   }
 }
 
-function mapStateToProps({ cart }) {
-  return { cart };
-}
-
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ addCartItem }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LivroItem);
+export default connect(null, mapDispatchToProps)(LivroItem);
