@@ -5,8 +5,8 @@ import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ReduxPromise from "redux-promise";
 
-import PageLivrosIndex from './components/PageLivrosIndex';
-import PageCartIndex from './components/PageCartIndex';
+import PageLivrosIndex from './components/pages/PageLivrosIndex';
+import PageCartIndex from './components/pages/PageCartIndex';
 import reducers from './reducers/root';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);

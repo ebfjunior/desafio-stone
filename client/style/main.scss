@@ -4,4 +4,38 @@ body{
   background: #f3f3f3;
 }
 
+.preloader-wrapper{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  &.big{
+    margin-top: -32px;
+    margin-left: -32px;
+  }
+}
+
+.header{
+  background: #fff;
+  padding: 5px 10px;
+  padding-top: 20px;
+  border-bottom: 1px solid #e9e9e9;
+  margin-bottom: 10px;
+
+  .logotipo{
+    font-size: 1.4em;
+    line-height: 30px;;
+    height: 30px;
+  }
+}
+
+@media(min-width: 600px){
+  #toast-container {
+    top: auto !important;
+    right: 4% !important;
+    bottom: 6%;
+  }
+}
+
 @import 'livros';
+@import 'cart';

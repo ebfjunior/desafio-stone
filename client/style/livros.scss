@@ -4,17 +4,28 @@
   & > .livro-item-container{
     background: #fff;
     border: 1px solid #e9e9e9;
-    height: 350px;
+    padding-bottom: 15px;
 
     & > .livro-item-content{
       padding: 10px 15px;  
       .livro-nome{
         line-height: 1.2em;
         margin-bottom: 10px;
+        min-height: 37px;
       }
 
       .livro-preco{
         font-size: 1.2em;
+      }
+
+      .livro-more{
+        transition: 250ms all ease-in-out;
+
+        &:hover{
+          // -webkit-filter: brightness(160%) contrast(150%);
+          // -moz-filter: brightness(160%) contrast(150%);
+          filter: brightness(150%);
+        }
       }
     }
 
@@ -25,5 +36,22 @@
         font-size: 0.8em;
       }
     } 
+  }
+}
+.header {
+  .cart-link {
+    position: absolute;
+    right: 0;
+    padding-right: 15px;
+  }
+}
+
+@media(max-width: 600px){
+  .header {
+    .cart-link {
+      position: static;
+      display: block;
+      margin-top: 10px;
+    }
   }
 }
