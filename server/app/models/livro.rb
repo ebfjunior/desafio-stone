@@ -6,6 +6,7 @@ class Livro < ApplicationRecord
     Rails.env.eql?("development") ? ("http://localhost:3000" + self.foto.url(:medium).split("?").first) : "http://" + self.foto.url(:medium)[2..-1]
   end
 
+
   def foto_url_original
     Rails.env.eql?("development") ? ("http://localhost:3000" + self.foto.url(:original).split("?").first) : "http://" + self.foto.url(:original)[2..-1]
   end
